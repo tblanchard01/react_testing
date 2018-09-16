@@ -12,10 +12,17 @@ class App extends React.Component {
             notes: []
         } 
     }
+
+    componentDidMount(){
+      this.setState({notes: read_cookie(cookie_key)})
+    }
+
     submit(){
       const {notes, text} = this.state 
       notes.push({ text })
       this.setState({notes })
+      bake_cookie(cookie_key, this.state.notes)
+
     }
   render() { 
     return ( 
