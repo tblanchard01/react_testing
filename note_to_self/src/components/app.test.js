@@ -12,5 +12,11 @@ describe("App", () => {
     expect(app.find('.btn').at(1).text()).toEqual('Clear')
   } )
 
+  describe("when rendering the form", () => {
+    it('creates a form component', ()=> {
+      expect(app.find('Form').exists()).toBe(true)
+    })
+  })
+
 });
 
