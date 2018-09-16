@@ -36,7 +36,7 @@ class App extends React.Component {
           <FormControl
             onChange={event => this.setState({ text: event.target.value })}
           />{" "}
-          <Button onClick={() => this.submit()}> Submit </Button>
+          <Button onClick={() => this.submit()}>Submit</Button>
         </Form>
         {this.state.notes.map((note, index) => {
           return <Note key={index} note={note} />;
