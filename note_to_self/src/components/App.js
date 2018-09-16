@@ -22,8 +22,13 @@ class App extends React.Component {
       notes.push({ text })
       this.setState({notes })
       bake_cookie(cookie_key, this.state.notes)
-
     }
+      clear(){
+        delete_cookie(cookie_key) 
+        this.setState({notes: []})
+      }
+
+    
   render() { 
     return ( 
       <div>
@@ -38,6 +43,14 @@ class App extends React.Component {
         {this.state.notes.map((note, index) => {
          return <Note key = {index} note = {note}/>
         }  )}
+
+        <hr/>
+
+        <Button onClick ={()=> this.clear()}> Clear </Button>
+
+
+
+
       </div>
     );
   }
