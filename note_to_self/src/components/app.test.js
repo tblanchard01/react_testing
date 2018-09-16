@@ -41,6 +41,7 @@ describe("App", () => {
       app.find("FormControl").simulate("change", {
         target: { value: testNote }
       });
+
     });
     it("updates the text in state", () => {
       expect(app.state().text).toEqual(testNote);
@@ -48,13 +49,24 @@ describe("App", () => {
 
     describe("when submiting a new note", () => {
       it("adds new note to state array", () => {
-        app
-          .find(".btn")
-          .at(0)
-          .simulate("click");
+        app.find(".btn").at(0).simulate("click");
         expect(app.state().notes[0].text).toEqual(testNote);
       });
     });
+
+    describe('',()=>{
+      let app2 
+      beforeEach(()=>{
+
+        app2 = mount(<App/>)
+ })
+
+ it('reads the stored note cookies', () =>{
+   expect((app2.state().notes)).toEqual([{text:testNote}])
+ })
+
+    })
+
     describe("when clear button is pressed",() =>{
       it("state array is cleared", () => {
         app.find('.btn').at(1).simulate('click')
@@ -62,5 +74,6 @@ describe("App", () => {
       })
 
     })
+   
   });
 });
