@@ -44,7 +44,7 @@ class App extends React.Component {
 
         <hr />
 
-        <Button onClick={() => this.clear()}> Clear </Button>
+        <Button onClick={() => this.clear()}>Clear</Button>
       </div>
     );
   }
