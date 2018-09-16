@@ -55,5 +55,12 @@ describe("App", () => {
         expect(app.state().notes[0].text).toEqual(testNote);
       });
     });
+    describe("when clear button is pressed",() =>{
+      it("state array is cleared", () => {
+        app.find('.btn').at(1).simulate('click')
+        expect(app.state().notes).toEqual([])
+      })
+
+    })
   });
 });
