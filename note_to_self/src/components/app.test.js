@@ -27,6 +27,20 @@ describe("App", () => {
     });
   });
   it("renders a submit button", () => {
-    expect(app.find('.btn').at(0).text()).toEqual('Submit')
+    expect(
+      app.find(".btn").at(0).text()).toEqual("Submit");
   });
-});
+
+  describe("when creating a note", () => {
+    let testNote = "test note";
+    beforeEach(() => {
+      app.find("FormControl").simulate("change",{
+          target: { value: testNote }
+        });
+    });
+    it("updates the text in state", () => {
+      expect(app.state().text).toEqual(testNote)
+
+    });
+  });
+}); 
